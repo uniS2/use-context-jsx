@@ -1,10 +1,12 @@
 import "./App.css";
 import Page from "./components/Page";
-import { useAtom } from 'jotai'
+import { useSetAtom, useAtomValue } from 'jotai'
 import { darkAtom } from './Jotai'
 
 function App() {
-  const [isDark, setIsDark] = useAtom(darkAtom);
+  // const [anime, setAnime] = useAtom(animeAtom)
+  const isDark = useAtomValue(darkAtom);  // write: 생성된 atom 값을 update만
+  const setIsDark = useSetAtom(darkAtom); // read: 생성된 atom 값을 read만
   return <Page isDark={isDark} toggleThema={() => setIsDark(!isDark)} />;
 }
 
